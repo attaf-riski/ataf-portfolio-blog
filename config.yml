@@ -49,7 +49,7 @@ params:
   profileMode:
     enabled: true
     title: "Attaf Riski Putra Ramadhan"
-    subtitle: Student in Diponegoro University
+    subtitle: 👨🏾‍💻 Pursuing bachelor degree in computer science at<br> Diponegoro University, Semarang, Indonesia 🇮🇩. <br> Ataf likes to learn about frontEnd, mobile, and other new technologies.
     imageUrl: "home/me.jpg"
     imageWidth: 220
     imageHeight: 220
