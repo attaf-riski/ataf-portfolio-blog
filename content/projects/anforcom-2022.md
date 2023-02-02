@@ -1,13 +1,13 @@
 ---
 title: "Landing Page Anforcom 2022"
 description: "Landing page untuk event Anforcom 2022 dari HMIF Undip"
-dateString : Agustus 2022
+dateString: Agustus 2022
 draft: false
-tags: ["tailwindCSS","nextJS"]
+tags: ["tailwindCSS", "nextJS"]
 showToc: false
 weight: 209
 cover:
-    image: "projects/anforcom-2022/cover.png"
+  image: "projects/anforcom-2022/cover.png"
 ---
 
 ## 🔗 [GitHub](https://github.com/anforcom-2022/anforcom-web)

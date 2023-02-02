@@ -16,7 +16,7 @@ menu:
     - identifier: projects
       name: Projects
       url: /projects
-      weight: 30  
+      weight: 30
     - identifier: experience
       name: Experience
       url: /experience
