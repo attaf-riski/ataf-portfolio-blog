@@ -7,7 +7,7 @@ tags: ["encryption", "python"]
 showToc: false
 weight: 209
 cover:
-  image: "blog/modifikasi_vigenere_cipher/cover.png"
+  image: "/blog/modifikasi_vigenere_cipher/cover.png"
   caption: "Made by Ataf with Krita"
 ---
 
@@ -320,4 +320,4 @@ if __name__ == '__main__':
 # Itu Sudah Semua!
 
 Kalau mau lihat [colab](https://colab.research.google.com/drive/1XIt_zEsT1KNpC8OODfUVSUBqwIbfFc6j?usp=sharing).
-Jika kamu membaca sampai titik ini aku ucapkan terimakasih, dengan ini juga kamu telah mempelajari salah satu jenis enkripsi klasik, kalau kamu tertarik coba deh cari _keyword_ ini di google: autokey dan enkripsi modern. Maaf kalau ada tutur kata yang kurang berkenan 😌.
+Jika kamu membaca sampai titik ini aku ucapkan terimakasih, dengan ini juga kamu telah mempelajari salah satu jenis enkripsi klasik, kalau kamu tertarik coba deh cari _keyword_ ini di google: autokey dan enkripsi modern. Maaf kalau ada tutur kata yang kurang berkenan 😌. Thanks Chat GPT for the layout ❤️.

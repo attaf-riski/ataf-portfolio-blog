@@ -7,7 +7,7 @@ tags: ["tailwindCSS", "nextJS"]
 showToc: false
 weight: 209
 cover:
-  image: "projects/anforcom-2022/cover.png"
+  image: "/projects/anforcom-2022/cover.png"
 ---
 
 ## 🔗 [GitHub](https://github.com/anforcom-2022/anforcom-web)

@@ -1,13 +1,13 @@
 ---
 title: "Lemari Rapi"
 description: "Sebuah aplikasi yang membantu menyimpan koleksi pakaian di hape android"
-dateString : Agustus 2022
+dateString: Agustus 2022
 draft: false
-tags: ["flutter","firebase"]
+tags: ["flutter", "firebase"]
 showToc: false
 weight: 209
 cover:
-    image: "projects/lemari-rapi/cover.png"
+  image: "/projects/lemari-rapi/cover.png"
 ---
 
 ## 🔗 [GitHub](https://github.com/attaf-riski/lemari_rapi)
