@@ -1,7 +1,7 @@
 ---
 title: "Lemari Rapi"
 description: "Sebuah aplikasi yang membantu menyimpan koleksi pakaian di hape android"
-dateString: Agustus 2022
+dateString: Agustus 2022 ·
 draft: false
 tags: ["flutter", "firebase"]
 showToc: false

@@ -1,7 +1,7 @@
 ---
 title: "Landing Page Anforcom 2022"
 description: "Landing page untuk event Anforcom 2022 dari HMIF Undip"
-dateString: Agustus 2022
+dateString: Agustus 2022 ·
 draft: false
 tags: ["tailwindCSS", "nextJS"]
 showToc: false
