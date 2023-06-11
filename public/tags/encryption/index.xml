@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>encryption on Attaf Riski</title>
+    <link>/tags/encryption/</link>
+    <description>Recent content in encryption on Attaf Riski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/tags/encryption/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modifikasi Enkripsi Vigenere Cipher</title>
+      <link>/blog/modifikasi_vigenere_cipher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/modifikasi_vigenere_cipher/</guid>
+      <description>Meningkatkan keamanan enkripsi vigenere cipher</description>
+    </item>
+    
+  </channel>
+</rss>

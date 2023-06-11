@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>/projects/anforcom-2022/</loc>
+  </url><url>
+    <loc>/projects/lemari-rapi/</loc>
+  </url><url>
+    <loc>/blog/modifikasi_vigenere_cipher/</loc>
+  </url><url>
+    <loc>/blog/knapsack_with_dp_es/</loc>
+  </url><url>
+    <loc>/</loc>
+  </url><url>
+    <loc>/blog/</loc>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/tags/encryption/</loc>
+  </url><url>
+    <loc>/tags/firebase/</loc>
+  </url><url>
+    <loc>/tags/flutter/</loc>
+  </url><url>
+    <loc>/tags/nextjs/</loc>
+  </url><url>
+    <loc>/projects/</loc>
+  </url><url>
+    <loc>/tags/python/</loc>
+  </url><url>
+    <loc>/search/</loc>
+  </url><url>
+    <loc>/tags/</loc>
+  </url><url>
+    <loc>/tags/tailwindcss/</loc>
+  </url>
+</urlset>

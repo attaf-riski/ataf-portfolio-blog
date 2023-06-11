@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Projects on Attaf Riski</title>
+    <link>/projects/</link>
+    <description>Recent content in Projects on Attaf Riski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Landing Page Anforcom 2022</title>
+      <link>/projects/anforcom-2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/anforcom-2022/</guid>
+      <description>Landing page untuk event Anforcom 2022 dari HMIF Undip</description>
+    </item>
+    
+    <item>
+      <title>Lemari Rapi</title>
+      <link>/projects/lemari-rapi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/lemari-rapi/</guid>
+      <description>Sebuah aplikasi yang membantu menyimpan koleksi pakaian di hape android</description>
+    </item>
+    
+  </channel>
+</rss>

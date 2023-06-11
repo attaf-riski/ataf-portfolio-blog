@@ -1,7 +1,7 @@
 ---
 title: "Modifikasi Enkripsi Vigenere Cipher"
 description: "Meningkatkan keamanan enkripsi vigenere cipher"
-dateString: Februari 2022 ·
+dateString: Februari 2023 ·
 draft: false
 tags: ["encryption", "python"]
 showToc: false

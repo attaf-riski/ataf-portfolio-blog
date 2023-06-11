@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Modifikasi Enkripsi Vigenere Cipher | Attaf Riski</title>
+<meta name="keywords" content="encryption, python">
+<meta name="description" content="Meningkatkan keamanan enkripsi vigenere cipher">
+<meta name="author" content="">
+<link rel="canonical" href="/blog/modifikasi_vigenere_cipher/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="mask-icon" href="safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Modifikasi Enkripsi Vigenere Cipher" />
+<meta property="og:description" content="Meningkatkan keamanan enkripsi vigenere cipher" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/modifikasi_vigenere_cipher/" />
+<meta property="og:image" content="/blog/modifikasi_vigenere_cipher/cover.png" /><meta property="article:section" content="blog" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/blog/modifikasi_vigenere_cipher/cover.png" />
+<meta name="twitter:title" content="Modifikasi Enkripsi Vigenere Cipher"/>
+<meta name="twitter:description" content="Meningkatkan keamanan enkripsi vigenere cipher"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Blogs",
+      "item": "/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Modifikasi Enkripsi Vigenere Cipher",
+      "item": "/blog/modifikasi_vigenere_cipher/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Modifikasi Enkripsi Vigenere Cipher",
+  "name": "Modifikasi Enkripsi Vigenere Cipher",
+  "description": "Meningkatkan keamanan enkripsi vigenere cipher",
+  "keywords": [
+    "encryption", "python"
+  ],
+  "articleBody": "Pendahuluan Pernah terbayang bagaimana password kamu diamankan di dalam server? Atau pernah kepikiran bagaimana pesan whatsapp kamu dikirim secara aman? Enkripsi jawabannya! Enkripsi yang menjadi standar dunia digital saat ini merupakan jenis yang cukup aman dan terbaru. Nah, pada kesempatan ini aku mau berbagi tentang modifikasi enkripsi klasik yang tentunya lebih mudah daripada enkripsi modern yaa, namanya adalah enkripsi vigenere cipher 🔑.\nVigenere Cipher adalah salah satu teknik enkripsi klasik yang diciptakan pada tahun 1553 oleh Blaise de Vigenere, seorang matematikawan Prancis. Selama berabad-abad, teknik ini telah digunakan untuk menyandikan pesan rahasia dan banyak dianggap sebagai salah satu cipher yang paling tidak dapat ditembus. Keren ngga tuh!\nCara Kerja Enkripsi Vigenere Cipher Cara kerjanya adalah tiap huruf pada kalimat yang akan dienkripsi memiliki nilai ascii, nilai tersebut akan ditambah dengan nilai ascii dari kunci lalu di modulus 256. Tunggu kenapa di modulus? Hal tersebut karena kali ini aku akan memakai kode ascii yang jumlah hurufnya 256 kalau lebih dari itu ngga di hitung dulu hurufnya.\nEnkripsi Dekripsi Untuk mendekripsi atau mengubah dari pesan enkripsi ke pesan asli caranya dengan mengurangi nilai ascii tiap huruf enkripsi dengan nilai kunci lalu di modulus 256.\nKali ini aku pakai bahasa pemrograman python untuk mengimplementasikan algoritma dari enkripsi vigenere cipher. Biasanya kalau lihat kodenya atau lihat praktiknya bakalan lebih mudah ya,\nEnkripsi # Fungsi Enkripsi def cipherText(message, key_new): # Kamus lokal cipher_text = '' i = 0 # Algoritma for letter in message: x = ord(letter)+(ord(key_new[i])) % 256 cipher_text += chr(x) i += 1 return cipher_text Dekripsi # Fungsi Dekripsi def originalText(cipher_text, key_new): # Kamus lokal or_txt = '' i = 0 # Algoritma for letter in cipher_text: x = ord(letter)-(ord(key_new[i])+256) % 256 or_txt += chr(x) i += 1 return or_txt Menghasilkan Kunci Kunci dalam vigenere cipher adalah kunci, lohe kok aneh. hhh. Tapi memang benar kunci dalam algoritma enkripsi ini sangat penting. Lebih baik terlihat pesannya daripada terlihat kuncinya. Kunci dimasukan oleh pemrograman yang kemudian akan disesuaikan panjangnya dengan pesan asli agar semua huruf tercakup.\n# Membuat kunci baru def generate_key(message, key): # Kamus Lokal i = 0 # Algoritma while True: if len(key) == len(message): break else: key += (key[i% len(key)]) i += 1 print(\"key: \",key) return key Kenapa Perlu Memofifikasi Vigenere Cipher? Pertanyaan bagus, masalah yang akan muncul ketika menggunakan enkripsi vigenere cipher adalah pesan cipher dapat memiliki pola kalau pesannya memiliki huruf yang sama dan itu adalah hal yang tidak bagus. Modifikasi Enkripsi Vigenere Cipher Berangkat dari kekurangan vigenere cipher aku bakal modif ini algoritma, konsepnya nanti membagi nilai suatu huruf dipesan menjadi dua bagian yang apabila dijumlahkan akan menghasilkan nilai asli itu sendiri. Lalu nilainya dapat dari mana? Dengan cara menghasilkannya secara random antara 0 - nilai asli. Lalu nilai asli dikurangi nilai random tersebut sehingga dapat menghasilkan pesan yang lebih panjang dua kali.\nEnkripsi # buat original text 2X lipat lebih panjang for letter in message: z = ord(letter) nil_random = random.randint(1, z) modif_ori += chr(nil_random) modif_ori += chr(z-nil_random) Baru setelah itu dienkripsi seperti biasa seperti vigenere cipher, namun tentunya dengan modifikasi sedikit agar satu kunci bisa untuk dua huruf\nDekripsi Untuk dekripsinya, prosesnya dibalik dari proses enkripsi. Memakai satu kunci untuk dua huruf cipher text baru setelah itu digabung.\n# Fungsi Dekripsi def originalText(cipher_text, key_new): # Kamus lokal or_txt = '' i = 0 modif_ori = ''; # Algoritma # deksripsi seperti biasa for j in range(1,len(cipher_text),2): #pakai satu kunci untuk 2 original text for k in range(2): x = (ord(cipher_text[j+k-1])-(ord(key_new[i])+256)) % 256 or_txt += chr(x) i += 1 # jadikan or_txt 2 kali lebih kecil for r in range(0,len(or_txt),2): modif_ori += chr(ord(or_txt[r])+ord(or_txt[r+1])) return modif_ori Untuk proses menghasilkan kunci sama saja\nKelebihan Dengan menggunakan algoritma ini, pesan cipher tidak akan memiliki pola dan akan random setiap dihasilkan!\nVigenere Cipher Asli Python # Nama file: vigenere-cipher.ipynb # Deskripsi: modul vigenere-cipher tanpa autokey # Pembuat: Attaf Riski # Tanggal: 9 Des 2022 import random # Membuat kunci baru def generate_key(message, key): # Kamus Lokal i = 0 # Algoritma while True: if len(key) == len(message): break else: key += (key[i% len(key)]) i += 1 print(\"key: \",key) return key # Fungsi Enkripsi def cipherText(message, key_new): # Kamus lokal cipher_text = '' i = 0 # Algoritma for letter in message: x = ord(letter)+(ord(key_new[i])) % 256 cipher_text += chr(x) i += 1 return cipher_text # Fungsi Dekripsi def originalText(cipher_text, key_new): # Kamus lokal or_txt = '' i = 0 # Algoritma for letter in cipher_text: x = ord(letter)-(ord(key_new[i])+256) % 256 or_txt += chr(x) i += 1 return or_txt def main(): message = 'aaaaaaaaaaaaaaaaa' key = 'februari' key_new = '' if(len(key)\u003elen(message)): key_new = key[:len(message)] elif(len(key)\u003clen(message)): key_new = generate_key(message, key) else: key_new = key cipher_text = cipherText(message, key_new) original_text = originalText(cipher_text, key_new) print(\"Teks Cipher =\", cipher_text) print(\"Teks Asli =\", original_text) # Executes the main function if __name__ == '__main__': main() Vigenere Cipher Modifikasi # Nama file: modifikasi-vigenere-cipher.ipynb # Deskripsi: tugas akhir KJI \u003e modul modifikasi vigenere cipher # Pembuat: Attaf Riski # Tanggal: 8 Des 2022 import random # Membuat kunci baru def generate_key(message, key): # Kamus Lokal i = 0 # Algoritma while True: if len(key) == len(message): break else: key += key[i % len(key)] i += 1 print(\"key: \",key) return key # Fungsi Enkripsi def cipherText(message, key_new): # Kamus lokal cipher_text = '' i = 0 nil_random = 0; modif_ori = '' # Algoritma # buat original text 2X lipat lebih panjang for letter in message: z = ord(letter) nil_random = random.randint(1, z) modif_ori += chr(nil_random) modif_ori += chr(z-nil_random) # enkripsi seperti biasa for j in range(1,len(modif_ori),2): #pakai satu kunci untuk 2 original text for k in range(2): x = (ord(modif_ori[j+k-1])+(ord(key_new[i]))) % 256 cipher_text += chr(x) i += 1 return cipher_text # Fungsi Dekripsi def originalText(cipher_text, key_new): # Kamus lokal or_txt = '' i = 0 modif_ori = ''; # Algoritma # deksripsi seperti biasa for j in range(1,len(cipher_text),2): #pakai satu kunci untuk 2 original text for k in range(2): x = (ord(cipher_text[j+k-1])-(ord(key_new[i])+256)) % 256 or_txt += chr(x) i += 1 # jadikan or_txt 2 kali lebih kecil for r in range(0,len(or_txt),2): modif_ori += chr(ord(or_txt[r])+ord(or_txt[r+1])) return modif_ori def main(): message = 'aaaaaaaaaaaaaaaaa' key = 'februari' key_new = '' if(len(key)\u003elen(message)): key_new = key[:len(message)] elif(len(key)\u003clen(message)): key_new = generate_key(message, key) else: key_new = key cipher_text = cipherText(message, key_new) original_text = originalText(cipher_text, key_new) print(\"Teks Cipher =\", cipher_text) print(\"Teks Asli =\", original_text) # Executes the main function if __name__ == '__main__': main() Itu Sudah Semua! Kalau mau lihat colab. Jika kamu membaca sampai titik ini aku ucapkan terimakasih, dengan ini juga kamu telah mempelajari salah satu jenis enkripsi klasik, kalau kamu tertarik coba deh cari keyword ini di google: autokey dan enkripsi modern. Maaf kalau ada tutur kata yang kurang berkenan 😌. Thanks Chat GPT for the layout ❤️.\n",
+  "wordCount" : "1113",
+  "inLanguage": "en",
+  "image":"/blog/modifikasi_vigenere_cipher/cover.png","datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/blog/modifikasi_vigenere_cipher/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Attaf Riski",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header sticky-header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="" accesskey="h" title="Attaf Riski (Alt + H)">Attaf Riski</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/blog" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="/projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="/experience" title="Experience">
+                    <span>Experience</span>
+                </a>
+            </li>
+            <li>
+                <a href="/search" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="">Home</a>&nbsp;»&nbsp;<a href="/blog/">Blogs</a></div>
+    <h1 class="post-title">
+      Modifikasi Enkripsi Vigenere Cipher
+    </h1>
+    <div class="post-description">Meningkatkan keamanan enkripsi vigenere cipher</div>
+    <div class="post-meta">
+
+ Februari 2022 ·6 min&nbsp;·&nbsp;1113 words
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="/blog/modifikasi_vigenere_cipher/cover.png" alt="Made by Ataf with Krita">
+        <p>Made by Ataf with Krita</p>
+</figure>
+  <div class="post-content"><h1 id="pendahuluan">Pendahuluan<a hidden class="anchor" aria-hidden="true" href="#pendahuluan">#</a></h1>
+<p>Pernah terbayang bagaimana <em>password</em> kamu diamankan di dalam server? Atau pernah kepikiran bagaimana pesan whatsapp kamu dikirim secara aman? Enkripsi jawabannya! Enkripsi yang menjadi standar dunia digital saat ini merupakan jenis yang cukup aman dan terbaru. Nah, pada kesempatan ini aku mau berbagi tentang modifikasi enkripsi klasik yang tentunya lebih mudah daripada enkripsi modern yaa, namanya adalah enkripsi vigenere cipher 🔑.</p>
+<p>Vigenere Cipher adalah salah satu teknik enkripsi klasik yang diciptakan pada tahun 1553 oleh Blaise de Vigenere, seorang matematikawan Prancis. Selama berabad-abad, teknik ini telah digunakan untuk menyandikan pesan rahasia dan banyak dianggap sebagai salah satu cipher yang paling tidak dapat ditembus. <em>Keren ngga tuh</em>!</p>
+<h1 id="cara-kerja-enkripsi-vigenere-cipher">Cara Kerja Enkripsi Vigenere Cipher<a hidden class="anchor" aria-hidden="true" href="#cara-kerja-enkripsi-vigenere-cipher">#</a></h1>
+<p>Cara kerjanya adalah tiap huruf pada kalimat yang akan dienkripsi memiliki nilai <em>ascii</em>, nilai tersebut akan ditambah dengan nilai <em>ascii</em> dari kunci lalu di modulus 256. Tunggu kenapa di modulus? Hal tersebut karena kali ini aku akan memakai kode <em>ascii</em> yang jumlah hurufnya 256 kalau lebih dari itu ngga di hitung dulu hurufnya.</p>
+<h2 id="enkripsi">Enkripsi<a hidden class="anchor" aria-hidden="true" href="#enkripsi">#</a></h2>
+<p><img loading="lazy" src="/blog/modifikasi_vigenere_cipher/enkripsi.png" alt=""  />
+</p>
+<h2 id="dekripsi">Dekripsi<a hidden class="anchor" aria-hidden="true" href="#dekripsi">#</a></h2>
+<p><img loading="lazy" src="/blog/modifikasi_vigenere_cipher/dekripsi.png" alt=""  />
+</p>
+<p>Untuk mendekripsi atau mengubah dari pesan enkripsi ke pesan asli caranya dengan mengurangi nilai <em>ascii</em> tiap huruf enkripsi dengan nilai kunci lalu di modulus 256.</p>
+<p>Kali ini aku pakai bahasa pemrograman <em>python</em> untuk mengimplementasikan algoritma dari enkripsi vigenere cipher. Biasanya kalau lihat kodenya atau lihat praktiknya bakalan lebih mudah ya,</p>
+<h2 id="enkripsi-1">Enkripsi<a hidden class="anchor" aria-hidden="true" href="#enkripsi-1">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Fungsi Enkripsi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cipherText</span>(message, key_new):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus lokal</span>
+</span></span><span style="display:flex;"><span>    cipher_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> letter <span style="color:#f92672">in</span> message:
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> ord(letter)<span style="color:#f92672">+</span>(ord(key_new[i])) <span style="color:#f92672">%</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>        cipher_text <span style="color:#f92672">+=</span> chr(x)
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cipher_text
+</span></span></code></pre></div><h2 id="dekripsi-1">Dekripsi<a hidden class="anchor" aria-hidden="true" href="#dekripsi-1">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Fungsi Dekripsi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">originalText</span>(cipher_text, key_new):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus lokal</span>
+</span></span><span style="display:flex;"><span>    or_txt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> letter <span style="color:#f92672">in</span> cipher_text:
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> ord(letter)<span style="color:#f92672">-</span>(ord(key_new[i])<span style="color:#f92672">+</span><span style="color:#ae81ff">256</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>        or_txt <span style="color:#f92672">+=</span> chr(x)
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> or_txt
+</span></span></code></pre></div><h2 id="menghasilkan-kunci">Menghasilkan Kunci<a hidden class="anchor" aria-hidden="true" href="#menghasilkan-kunci">#</a></h2>
+<p>Kunci dalam vigenere cipher adalah kunci, <em>lohe kok aneh</em>. hhh. Tapi memang benar kunci dalam algoritma enkripsi ini sangat penting. Lebih baik terlihat pesannya daripada terlihat kuncinya.
+<img loading="lazy" src="/blog/modifikasi_vigenere_cipher/kunci.jpg" alt=""  />
+</p>
+<p>Kunci dimasukan oleh pemrograman yang kemudian akan disesuaikan panjangnya dengan pesan asli agar semua huruf tercakup.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Membuat kunci baru</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_key</span>(message, key):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus Lokal</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> len(key) <span style="color:#f92672">==</span> len(message):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            key <span style="color:#f92672">+=</span> (key[i<span style="color:#f92672">%</span> len(key)])
+</span></span><span style="display:flex;"><span>            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;key: &#34;</span>,key)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> key
+</span></span></code></pre></div><h2 id="kenapa-perlu-memofifikasi-vigenere-cipher">Kenapa Perlu Memofifikasi Vigenere Cipher?<a hidden class="anchor" aria-hidden="true" href="#kenapa-perlu-memofifikasi-vigenere-cipher">#</a></h2>
+<p>Pertanyaan bagus, masalah yang akan muncul ketika menggunakan enkripsi vigenere cipher adalah pesan cipher dapat memiliki pola kalau pesannya memiliki huruf yang sama dan itu adalah hal yang tidak bagus.
+<img loading="lazy" src="/blog/modifikasi_vigenere_cipher/kurang.png" alt=""  />
+</p>
+<h1 id="modifikasi-enkripsi-vigenere-cipher">Modifikasi Enkripsi Vigenere Cipher<a hidden class="anchor" aria-hidden="true" href="#modifikasi-enkripsi-vigenere-cipher">#</a></h1>
+<p>Berangkat dari kekurangan vigenere cipher aku bakal modif ini algoritma, konsepnya nanti membagi nilai suatu huruf dipesan menjadi dua bagian yang apabila dijumlahkan akan menghasilkan nilai asli itu sendiri. Lalu nilainya dapat dari mana? Dengan cara menghasilkannya secara random antara 0 - nilai asli. Lalu nilai asli dikurangi nilai random tersebut sehingga dapat menghasilkan pesan yang lebih panjang dua kali.</p>
+<h2 id="enkripsi-2">Enkripsi<a hidden class="anchor" aria-hidden="true" href="#enkripsi-2">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># buat original text 2X lipat lebih panjang</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> letter <span style="color:#f92672">in</span> message:
+</span></span><span style="display:flex;"><span>      z <span style="color:#f92672">=</span> ord(letter)
+</span></span><span style="display:flex;"><span>      nil_random <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, z)
+</span></span><span style="display:flex;"><span>      modif_ori <span style="color:#f92672">+=</span> chr(nil_random)
+</span></span><span style="display:flex;"><span>      modif_ori <span style="color:#f92672">+=</span> chr(z<span style="color:#f92672">-</span>nil_random)
+</span></span></code></pre></div><p>Baru setelah itu dienkripsi seperti biasa seperti vigenere cipher, namun tentunya dengan modifikasi sedikit agar satu kunci bisa untuk dua huruf</p>
+<h2 id="dekripsi-2">Dekripsi<a hidden class="anchor" aria-hidden="true" href="#dekripsi-2">#</a></h2>
+<p>Untuk dekripsinya, prosesnya dibalik dari proses enkripsi. Memakai satu kunci untuk dua huruf cipher text baru setelah itu digabung.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Fungsi Dekripsi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">originalText</span>(cipher_text, key_new):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus lokal</span>
+</span></span><span style="display:flex;"><span>    or_txt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    modif_ori <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># deksripsi seperti biasa</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,len(cipher_text),<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">#pakai satu kunci untuk 2 original text</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>              x <span style="color:#f92672">=</span> (ord(cipher_text[j<span style="color:#f92672">+</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])<span style="color:#f92672">-</span>(ord(key_new[i])<span style="color:#f92672">+</span><span style="color:#ae81ff">256</span>)) <span style="color:#f92672">%</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>              or_txt <span style="color:#f92672">+=</span> chr(x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># jadikan or_txt 2 kali lebih kecil</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,len(or_txt),<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>          modif_ori <span style="color:#f92672">+=</span> chr(ord(or_txt[r])<span style="color:#f92672">+</span>ord(or_txt[r<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> modif_ori
+</span></span></code></pre></div><blockquote>
+<p>Untuk proses menghasilkan kunci sama saja</p>
+</blockquote>
+<h2 id="kelebihan">Kelebihan<a hidden class="anchor" aria-hidden="true" href="#kelebihan">#</a></h2>
+<p>Dengan menggunakan algoritma ini, pesan cipher tidak akan memiliki pola dan akan random setiap dihasilkan!</p>
+<p><img loading="lazy" src="/blog/modifikasi_vigenere_cipher/test1.png" alt="contoh 1:"  />
+</p>
+<p><img loading="lazy" src="/blog/modifikasi_vigenere_cipher/test2.png" alt="contoh 2:"  />
+</p>
+<p><img loading="lazy" src="/blog/modifikasi_vigenere_cipher/test3.png" alt="contoh 3:"  />
+</p>
+<h2 id="vigenere-cipher-asli-python">Vigenere Cipher Asli Python<a hidden class="anchor" aria-hidden="true" href="#vigenere-cipher-asli-python">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Nama file: vigenere-cipher.ipynb</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deskripsi: modul vigenere-cipher tanpa autokey</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Pembuat: Attaf Riski</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tanggal: 9 Des 2022</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Membuat kunci baru</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_key</span>(message, key):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus Lokal</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> len(key) <span style="color:#f92672">==</span> len(message):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            key <span style="color:#f92672">+=</span> (key[i<span style="color:#f92672">%</span> len(key)])
+</span></span><span style="display:flex;"><span>            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;key: &#34;</span>,key)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fungsi Enkripsi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cipherText</span>(message, key_new):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus lokal</span>
+</span></span><span style="display:flex;"><span>    cipher_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> letter <span style="color:#f92672">in</span> message:
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> ord(letter)<span style="color:#f92672">+</span>(ord(key_new[i])) <span style="color:#f92672">%</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>        cipher_text <span style="color:#f92672">+=</span> chr(x)
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cipher_text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fungsi Dekripsi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">originalText</span>(cipher_text, key_new):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus lokal</span>
+</span></span><span style="display:flex;"><span>    or_txt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> letter <span style="color:#f92672">in</span> cipher_text:
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> ord(letter)<span style="color:#f92672">-</span>(ord(key_new[i])<span style="color:#f92672">+</span><span style="color:#ae81ff">256</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>        or_txt <span style="color:#f92672">+=</span> chr(x)
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> or_txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;aaaaaaaaaaaaaaaaa&#39;</span>
+</span></span><span style="display:flex;"><span>    key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;februari&#39;</span>
+</span></span><span style="display:flex;"><span>    key_new <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(len(key)<span style="color:#f92672">&gt;</span>len(message)):
+</span></span><span style="display:flex;"><span>      key_new <span style="color:#f92672">=</span> key[:len(message)]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span>(len(key)<span style="color:#f92672">&lt;</span>len(message)):
+</span></span><span style="display:flex;"><span>      key_new <span style="color:#f92672">=</span> generate_key(message, key)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>      key_new <span style="color:#f92672">=</span> key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cipher_text <span style="color:#f92672">=</span> cipherText(message, key_new)
+</span></span><span style="display:flex;"><span>    original_text <span style="color:#f92672">=</span> originalText(cipher_text, key_new)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Teks Cipher =&#34;</span>, cipher_text)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Teks Asli =&#34;</span>, original_text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Executes the main function</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><h2 id="vigenere-cipher-modifikasi">Vigenere Cipher Modifikasi<a hidden class="anchor" aria-hidden="true" href="#vigenere-cipher-modifikasi">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Nama file: modifikasi-vigenere-cipher.ipynb</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deskripsi: tugas akhir KJI &gt; modul modifikasi vigenere cipher</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Pembuat: Attaf Riski</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tanggal: 8 Des 2022</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Membuat kunci baru</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_key</span>(message, key):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus Lokal</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> len(key) <span style="color:#f92672">==</span> len(message):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            key <span style="color:#f92672">+=</span> key[i <span style="color:#f92672">%</span> len(key)]
+</span></span><span style="display:flex;"><span>            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;key: &#34;</span>,key)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fungsi Enkripsi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cipherText</span>(message, key_new):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus lokal</span>
+</span></span><span style="display:flex;"><span>    cipher_text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    nil_random <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    modif_ori <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># buat original text 2X lipat lebih panjang</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> letter <span style="color:#f92672">in</span> message:
+</span></span><span style="display:flex;"><span>      z <span style="color:#f92672">=</span> ord(letter)
+</span></span><span style="display:flex;"><span>      nil_random <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, z)
+</span></span><span style="display:flex;"><span>      modif_ori <span style="color:#f92672">+=</span> chr(nil_random)
+</span></span><span style="display:flex;"><span>      modif_ori <span style="color:#f92672">+=</span> chr(z<span style="color:#f92672">-</span>nil_random)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># enkripsi seperti biasa</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,len(modif_ori),<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">#pakai satu kunci untuk 2 original text</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>              x <span style="color:#f92672">=</span> (ord(modif_ori[j<span style="color:#f92672">+</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])<span style="color:#f92672">+</span>(ord(key_new[i]))) <span style="color:#f92672">%</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>              cipher_text <span style="color:#f92672">+=</span> chr(x)
+</span></span><span style="display:flex;"><span>            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cipher_text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Fungsi Dekripsi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">originalText</span>(cipher_text, key_new):
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Kamus lokal</span>
+</span></span><span style="display:flex;"><span>    or_txt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    modif_ori <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Algoritma</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># deksripsi seperti biasa</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,len(cipher_text),<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">#pakai satu kunci untuk 2 original text</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>              x <span style="color:#f92672">=</span> (ord(cipher_text[j<span style="color:#f92672">+</span>k<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])<span style="color:#f92672">-</span>(ord(key_new[i])<span style="color:#f92672">+</span><span style="color:#ae81ff">256</span>)) <span style="color:#f92672">%</span> <span style="color:#ae81ff">256</span>
+</span></span><span style="display:flex;"><span>              or_txt <span style="color:#f92672">+=</span> chr(x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># jadikan or_txt 2 kali lebih kecil</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,len(or_txt),<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>          modif_ori <span style="color:#f92672">+=</span> chr(ord(or_txt[r])<span style="color:#f92672">+</span>ord(or_txt[r<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> modif_ori
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;aaaaaaaaaaaaaaaaa&#39;</span>
+</span></span><span style="display:flex;"><span>    key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;februari&#39;</span>
+</span></span><span style="display:flex;"><span>    key_new <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(len(key)<span style="color:#f92672">&gt;</span>len(message)):
+</span></span><span style="display:flex;"><span>      key_new <span style="color:#f92672">=</span> key[:len(message)]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span>(len(key)<span style="color:#f92672">&lt;</span>len(message)):
+</span></span><span style="display:flex;"><span>      key_new <span style="color:#f92672">=</span> generate_key(message, key)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>      key_new <span style="color:#f92672">=</span> key
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cipher_text <span style="color:#f92672">=</span> cipherText(message, key_new)
+</span></span><span style="display:flex;"><span>    original_text <span style="color:#f92672">=</span> originalText(cipher_text, key_new)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Teks Cipher =&#34;</span>, cipher_text)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Teks Asli =&#34;</span>, original_text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Executes the main function</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div><h1 id="itu-sudah-semua">Itu Sudah Semua!<a hidden class="anchor" aria-hidden="true" href="#itu-sudah-semua">#</a></h1>
+<p>Kalau mau lihat <a href="https://colab.research.google.com/drive/1XIt_zEsT1KNpC8OODfUVSUBqwIbfFc6j?usp=sharing">colab</a>.
+Jika kamu membaca sampai titik ini aku ucapkan terimakasih, dengan ini juga kamu telah mempelajari salah satu jenis enkripsi klasik, kalau kamu tertarik coba deh cari <em>keyword</em> ini di google: autokey dan enkripsi modern. Maaf kalau ada tutur kata yang kurang berkenan 😌. Thanks Chat GPT for the layout ❤️.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="/tags/encryption/">encryption</a></li>
+      <li><a href="/tags/python/">python</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="">Attaf Riski</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
