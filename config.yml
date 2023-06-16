@@ -43,6 +43,7 @@ params:
   hideMeta: false
   ShowReadingTime: true
   ShowWordCount: true
+  label.icon: "home/favicon.ico"
 
   # for enchanced SEO
   env: production
