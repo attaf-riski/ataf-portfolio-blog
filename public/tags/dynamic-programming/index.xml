@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Blogs on Attaf Riski</title>
-    <link>/blog/</link>
-    <description>Recent content in Blogs on Attaf Riski</description>
+    <title>dynamic programming on Attaf Riski</title>
+    <link>/tags/dynamic-programming/</link>
+    <description>Recent content in dynamic programming on Attaf Riski</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="/tags/dynamic-programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Knapsack Problem With Dynamic Programming And Exhaustive Search</title>
       <link>/blog/knapsack_dp_es/</link>
@@ -14,15 +14,6 @@
       <guid>/blog/knapsack_dp_es/</guid>
       <description>Pendahuluan Di dunia ini permasalahan punya lebih dari satu solusi, malahan kadang masalah tidak punya solusi. Solusi yang didapatkan ada yang lebih baik dari solusi lain. Tidak jauh berbeda dengan permasalahan di dunia pemrograman, terdapat banyak solusi yang bisa digunakan untuk menyelesaikan masalah, salah satu masalah yang punya banyak solusi adalah permasalahan Knapsack 🎒.
 Permasalahan Hidup selalu diwarnai dengan permasalahan. Begitu juga dengan knapsack problem yang memiliki banyak masalah turunan yang mirip dengan knapsack.</description>
-    </item>
-    
-    <item>
-      <title>Modifikasi Enkripsi Vigenere Cipher</title>
-      <link>/blog/modifikasi_vigenere_cipher/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/modifikasi_vigenere_cipher/</guid>
-      <description>Meningkatkan keamanan enkripsi vigenere cipher</description>
     </item>
     
   </channel>
