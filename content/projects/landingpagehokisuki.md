@@ -7,7 +7,7 @@ tags: ["Wordpress"]
 showToc: false
 weight: 203
 cover:
-  image: "/experiences/techarea/cover.png"
+  image: "/projects/hokisuki/cover.png"
 ---
 
 ## 🟡 [Link Aktif](https://hokisuki.com/)
