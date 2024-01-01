@@ -5,7 +5,7 @@ description: "Halaman website untuk menyimpan data buku"
 dateString: Oktober 2023 ·
 tags: ["HTML", "CSS", "Javascript"]
 showToc: false
-weight: 209
+weight: 205
 cover:
   image: "/projects/bookshelf-vanilla/cover.png"
 ---

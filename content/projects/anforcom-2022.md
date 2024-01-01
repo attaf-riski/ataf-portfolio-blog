@@ -5,7 +5,7 @@ dateString: Agustus 2022 ·
 draft: false
 tags: ["tailwindCSS", "nextJS"]
 showToc: false
-weight: 209
+weight: 207
 cover:
   image: "/projects/anforcom-2022/cover.png"
 ---

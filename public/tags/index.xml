@@ -7,6 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>CSS</title>
+      <link>/tags/css/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>dynamic programming</title>
       <link>/tags/dynamic-programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -52,11 +61,47 @@
     </item>
     
     <item>
+      <title>Hapi</title>
+      <link>/tags/hapi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/hapi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML</title>
+      <link>/tags/html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>java</title>
       <link>/tags/java/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>/tags/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Netlify</title>
+      <link>/tags/netlify/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/netlify/</guid>
       <description></description>
     </item>
     
@@ -70,6 +115,24 @@
     </item>
     
     <item>
+      <title>Niagahoster</title>
+      <link>/tags/niagahoster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/niagahoster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NodeJS</title>
+      <link>/tags/nodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>python</title>
       <link>/tags/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -79,11 +142,47 @@
     </item>
     
     <item>
+      <title>Server</title>
+      <link>/tags/server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL Server</title>
+      <link>/tags/sql-server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sql-server/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>tailwindCSS</title>
       <link>/tags/tailwindcss/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/tailwindcss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visual Basic.NET</title>
+      <link>/tags/visual-basic.net/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/visual-basic.net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wordpress</title>
+      <link>/tags/wordpress/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/wordpress/</guid>
       <description></description>
     </item>
     

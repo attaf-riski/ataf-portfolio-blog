@@ -7,6 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Bookshelf Api</title>
+      <link>/projects/bookshelf-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/bookshelf-api/</guid>
+      <description>API Untuk mengelola buku yang disimpan pada array</description>
+    </item>
+    
+    <item>
+      <title>Bookshelf Vanilla</title>
+      <link>/projects/bookshelf-vanilla/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/bookshelf-vanilla/</guid>
+      <description>Halaman website untuk menyimpan data buku</description>
+    </item>
+    
+    <item>
       <title>Knapsack Problem With Dynamic Programming And Exhaustive Search</title>
       <link>/blog/knapsack_dp_es/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -26,6 +44,15 @@ Permasalahan Hidup selalu diwarnai dengan permasalahan. Begitu juga dengan knaps
     </item>
     
     <item>
+      <title>Landing Page Digit 2023</title>
+      <link>/projects/web-digit-2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/web-digit-2023/</guid>
+      <description>Landing page untuk biro digit Informatika 2023</description>
+    </item>
+    
+    <item>
       <title>Lemari Rapi</title>
       <link>/projects/lemari-rapi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -41,6 +68,24 @@ Permasalahan Hidup selalu diwarnai dengan permasalahan. Begitu juga dengan knaps
       
       <guid>/blog/modifikasi_vigenere_cipher/</guid>
       <description>Meningkatkan keamanan enkripsi vigenere cipher</description>
+    </item>
+    
+    <item>
+      <title>POS LKS 2020</title>
+      <link>/projects/pos-lks20/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/pos-lks20/</guid>
+      <description>Membuat aplikasi dekstop menggunakan visual basic.NET</description>
+    </item>
+    
+    <item>
+      <title>Wordpress Addawaa 2022</title>
+      <link>/projects/web-addawaa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/web-addawaa/</guid>
+      <description>Migrasi Hosting dan Domain</description>
     </item>
     
     

@@ -5,7 +5,7 @@ dateString: Agustus 2022 ·
 draft: false
 tags: ["flutter", "firebase"]
 showToc: false
-weight: 209
+weight: 208
 cover:
   image: "/projects/lemari-rapi/cover.png"
 ---

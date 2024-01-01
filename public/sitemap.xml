@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/projects/bookshelf-api/</loc>
+  </url><url>
+    <loc>/projects/bookshelf-vanilla/</loc>
+  </url><url>
     <loc>/blog/knapsack_dp_es/</loc>
   </url><url>
     <loc>/projects/anforcom-2022/</loc>
   </url><url>
+    <loc>/projects/web-digit-2023/</loc>
+  </url><url>
     <loc>/projects/lemari-rapi/</loc>
   </url><url>
     <loc>/blog/modifikasi_vigenere_cipher/</loc>
+  </url><url>
+    <loc>/projects/pos-lks20/</loc>
+  </url><url>
+    <loc>/projects/web-addawaa/</loc>
   </url><url>
     <loc>/</loc>
   </url><url>
     <loc>/blog/</loc>
   </url><url>
     <loc>/categories/</loc>
+  </url><url>
+    <loc>/tags/css/</loc>
   </url><url>
     <loc>/tags/dynamic-programming/</loc>
   </url><url>
@@ -26,9 +38,21 @@
   </url><url>
     <loc>/tags/flutter/</loc>
   </url><url>
+    <loc>/tags/hapi/</loc>
+  </url><url>
+    <loc>/tags/html/</loc>
+  </url><url>
     <loc>/tags/java/</loc>
   </url><url>
+    <loc>/tags/javascript/</loc>
+  </url><url>
+    <loc>/tags/netlify/</loc>
+  </url><url>
     <loc>/tags/nextjs/</loc>
+  </url><url>
+    <loc>/tags/niagahoster/</loc>
+  </url><url>
+    <loc>/tags/nodejs/</loc>
   </url><url>
     <loc>/projects/</loc>
   </url><url>
@@ -36,8 +60,16 @@
   </url><url>
     <loc>/search/</loc>
   </url><url>
+    <loc>/tags/server/</loc>
+  </url><url>
+    <loc>/tags/sql-server/</loc>
+  </url><url>
     <loc>/tags/</loc>
   </url><url>
     <loc>/tags/tailwindcss/</loc>
+  </url><url>
+    <loc>/tags/visual-basic.net/</loc>
+  </url><url>
+    <loc>/tags/wordpress/</loc>
   </url>
 </urlset>

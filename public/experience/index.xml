@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>experinces on Attaf Riski</title>
+    <link>/experince/</link>
+    <description>Recent content in experinces on Attaf Riski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/experince/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Knapsack Problem With Dynamic Programming And Exhaustive Search</title>
+      <link>/experince/knapsack_dp_es/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/experince/knapsack_dp_es/</guid>
+      <description>Pendahuluan Di dunia ini permasalahan punya lebih dari satu solusi, malahan kadang masalah tidak punya solusi. Solusi yang didapatkan ada yang lebih baik dari solusi lain. Tidak jauh berbeda dengan permasalahan di dunia pemrograman, terdapat banyak solusi yang bisa digunakan untuk menyelesaikan masalah, salah satu masalah yang punya banyak solusi adalah permasalahan Knapsack 🎒.
+Permasalahan Hidup selalu diwarnai dengan permasalahan. Begitu juga dengan knapsack problem yang memiliki banyak masalah turunan yang mirip dengan knapsack.</description>
+    </item>
+    
+    <item>
+      <title>Modifikasi Enkripsi Vigenere Cipher</title>
+      <link>/experince/modifikasi_vigenere_cipher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/experince/modifikasi_vigenere_cipher/</guid>
+      <description>Meningkatkan keamanan enkripsi vigenere cipher</description>
+    </item>
+    
+  </channel>
+</rss>

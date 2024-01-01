@@ -5,7 +5,7 @@ description: "API Untuk mengelola buku yang disimpan pada array"
 dateString: Oktober 2023 ·
 tags: ["NodeJS", "Hapi"]
 showToc: false
-weight: 209
+weight: 204
 cover:
   image: "/projects/bookshelf-api/cover.png"
 ---

@@ -5,7 +5,7 @@ description: "Migrasi Hosting dan Domain"
 dateString: November 2022 ·
 tags: ["Wordpress", "Niagahoster", "Server"]
 showToc: false
-weight: 209
+weight: 206
 cover:
   image: "/projects/addawaa-22/cover.png"
 ---
