@@ -10,6 +10,6 @@ cover:
   image: "/projects/hokisuki/cover.png"
 ---
 
-## 🟡 [Link Aktif](https://hokisuki.com/)
+## 🟡 [Link Aktif](https://attafriski.biz.id/)
 
 Saya mencoba cloning website hokisuki.com menggunakan elementor dan wordpress sebagai salah satu tugas di techarea
