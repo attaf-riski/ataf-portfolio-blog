@@ -12,7 +12,7 @@ cover:
 
 ## 🔗 [Github](https://github.com/attaf-riski/bookshelf-api)
 
-## 🟡 [Link Aktif](http://13.229.108.197:9000/books)
+<!-- ## 🟡 [Link Aktif](http://13.229.108.197:9000/books) -->
 
 ## 📜 [Dokumentasi API](https://github.com/attaf-riski/bookshelf-api/blob/main/openapi.yaml)
 
